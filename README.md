@@ -25,6 +25,8 @@ A simple `safe` request is represented by appending a `go` prefix to the descrip
   {"id": "goPrevious", "type": "safe", "rt": "#TodoList"},
 ```
 
+@mamund -- I also use "doCreate" and "doUpdate" for unsafae and idempotent actions"
+
 ## ALPS file structure
 
 The description of the ALPS descriptor is divided into the following three blocks, which are represented in the following order.
