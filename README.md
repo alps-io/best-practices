@@ -39,6 +39,15 @@ Transition ID should be {Go|Do} prefix + application state ID.
   {"id": "do{$StateId}", "type": "itempotent"},
 ```
 
+## Element
+
+The semantic descriptor of an "element" that is included in a State but is not a State should be lower camel case.
+
+```
+    {"id": "articleBody"},
+    {"id": "dateCreated"},
+```
+
 ## ALPS file structure
 
 The description of the ALPS descriptor is divided into the following three blocks, which are represented in the following order.
