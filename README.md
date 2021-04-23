@@ -25,7 +25,19 @@ A simple `safe` request is represented by appending a `go` prefix to the descrip
   {"id": "goPrevious", "type": "safe", "rt": "#TodoList"},
 ```
 
-@mamund -- I also use "doCreate" and "doUpdate" for unsafe and idempotent actions"
+All methods except `safe` add the `do`prefix.
+
+```
+  {"id": "doEditUser", "type": "itempotent", "rt": "#UserList"},
+  {"id": "dpDeleteUser", "type": "itempotent", "rt": "#UserList"},
+```
+
+Transition ID should be {Go|Do} prefix + application state ID.
+
+```
+  {"id": "go{$StateId}", "type": "safe"},
+  {"id": "do{$StateId}", "type": "itempotent"},
+```
 
 ## ALPS file structure
 
