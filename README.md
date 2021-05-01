@@ -95,3 +95,22 @@ The basic rule is to follow the practices of each format when representing such 
     <input name="personName" type="text">
 </form>
 ```
+
+## Add Schema References to Your ALPS Documents
+It is a good idea to add a reference to ALPS schemas when creating your ALPS profiles.
+
+```json
+{
+  "$schema": "https://alps-io.github.io/schemas/alps.json",
+  "alps" : {   }
+}
+```
+
+```xml
+<alps 
+  version="1.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="https://alps-io.github.io/schemas/alps.xsd">
+</alps>  
+```
+
