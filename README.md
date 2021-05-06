@@ -7,13 +7,12 @@ A semantic descriptor that is a web page contains other semantic descriptors, an
 
 ```json
 "descriptor": [
-  "id": "BlogPosting", "type": "semantic", "def": "https://schema.org/BlogPosting",
-  "descriptor": [
-    {"href": "#id"}, 
-    {"href": "#articleBody"}, 
+  {"id": "BlogPosting", "type": "semantic", "def": "https://schema.org/BlogPosting", "descriptor": [
+    {"href": "#id"},
+    {"href": "#articleBody"},
     {"href": "#dateCreated"},
     {"href": "#blog"}
-  ]
+  ]}
 ]
 ```
 
@@ -30,15 +29,15 @@ A simple `safe` request is represented by appending a `go` prefix to the descrip
 All methods except `safe` add the `do`prefix.
 
 ```json
-  {"id": "doEditUser", "type": "itempotent", "rt": "#UserList"},
-  {"id": "doDeleteUser", "type": "itempotent", "rt": "#UserList"},
+  {"id": "doEditUser", "type": "idempotent", "rt": "#UserList"},
+  {"id": "doDeleteUser", "type": "idempotent", "rt": "#UserList"},
 ```
 
-Transition ID should be {Go|Do} prefix + application state ID.
+Transition ID should be {go|do} prefix + application state ID.
 
 ```json
-  {"id": "go{$StateId}", "type": "safe"},
-  {"id": "do{$StateId}", "type": "itempotent"},
+  {"id": "goBlogPosting", "type": "safe", "rt": "BlogPosting"},
+  {"id": "doEditBlogPosting", "type": "idempotent", "rt": "Blog"},
 ```
 
 ## Element
@@ -63,12 +62,10 @@ descriptor" : [
     {"id" : "name", "type" : "semantic", "def": "http://schema.org/identifier"},
     {"id" : "age", "type" : "semantic", "def": "http://schema.org/title"},
 
-    {"id" : "Person", "type": "semantic", "descriptor":
-        [
-          {"href": "#name"},
-          {"href": "#age"}
-        ]
-    }
+    {"id" : "Person", "type": "semantic", "descriptor":[
+      {"href": "#name"},
+      {"href": "#age"}
+    ]}
     
     {"id": "goPerson", "type": "safe", "rt": "#Person"},
 ]
@@ -81,8 +78,12 @@ ALPS can represent hierarchical meanings by position.
 ```json
 "descriptor": [
     {"id": "name", "def": "https://schema.org/name"},
-    {"id": "product", "descriptor":[{"href": "#name"}]}
-    {"id": "person", "descriptor":[{"href": "#name"}]}
+    {"id": "product", "descriptor":[
+      {"href": "#name"}
+    ]}
+    {"id": "person", "descriptor":[
+      {"href": "#name"}
+    ]}
 ]
 ```
 
