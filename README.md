@@ -29,7 +29,7 @@ All methods except `safe` add the `do`prefix.
 
 ```
   {"id": "doEditUser", "type": "itempotent", "rt": "#UserList"},
-  {"id": "dpDeleteUser", "type": "itempotent", "rt": "#UserList"},
+  {"id": "doDeleteUser", "type": "itempotent", "rt": "#UserList"},
 ```
 
 Transition ID should be {Go|Do} prefix + application state ID.
