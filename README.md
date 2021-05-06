@@ -6,6 +6,7 @@ A repo where we share/explore best/common/recommended practices when using ALPS
 A semantic descriptor that is a web page contains other semantic descriptors, and they are linked to each other. Such a page semantic descriptor is represented by an upper camel case.
 
 ```json
+"descriptor": [
   "id": "BlogPosting", "type": "semantic", "def": "https://schema.org/BlogPosting",
   "descriptor": [
     {"href": "#id"}, 
@@ -13,13 +14,14 @@ A semantic descriptor that is a web page contains other semantic descriptors, an
     {"href": "#dateCreated"},
     {"href": "#blog"}
   ]
+]
 ```
 
 ## Safe state transition
 
 A simple `safe` request is represented by appending a `go` prefix to the descriptor of the next transition destination.
 
-```
+```json
   {"id": "goHome", "type": "safe", "rt": "#Home"},
   {"id": "goFirst", "type": "safe", "rt": "#TodoList"},
   {"id": "goPrevious", "type": "safe", "rt": "#TodoList"},
@@ -27,14 +29,14 @@ A simple `safe` request is represented by appending a `go` prefix to the descrip
 
 All methods except `safe` add the `do`prefix.
 
-```
+```json
   {"id": "doEditUser", "type": "itempotent", "rt": "#UserList"},
   {"id": "doDeleteUser", "type": "itempotent", "rt": "#UserList"},
 ```
 
 Transition ID should be {Go|Do} prefix + application state ID.
 
-```
+```json
   {"id": "go{$StateId}", "type": "safe"},
   {"id": "do{$StateId}", "type": "itempotent"},
 ```
@@ -43,7 +45,7 @@ Transition ID should be {Go|Do} prefix + application state ID.
 
 The semantic descriptor of an "element" that is included in a State but is not a State should be lower camel case.
 
-```
+```json
     {"id": "articleBody"},
     {"id": "dateCreated"},
 ```
@@ -89,7 +91,7 @@ The basic rule is to follow the practices of each format when representing such 
 
 * In the html case, it is represented by the Lower camel case.
 
-```
+```html
 <form>
     <input name="productName" type="text">
     <input name="personName" type="text">
@@ -102,7 +104,8 @@ It is a good idea to add a reference to ALPS schemas when creating your ALPS pro
 ```json
 {
   "$schema": "https://alps-io.github.io/schemas/alps.json",
-  "alps" : {   }
+  "alps" : {
+  }
 }
 ```
 
