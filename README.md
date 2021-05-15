@@ -36,8 +36,8 @@ All methods except `safe` add the `do`prefix.
 Transition ID should be {go|do} prefix + application state ID.
 
 ```json
-  {"id": "goBlogPosting", "type": "safe", "rt": "BlogPosting"},
-  {"id": "doEditBlogPosting", "type": "idempotent", "rt": "Blog"},
+  {"id": "goBlogPosting", "type": "safe", "rt": "#BlogPosting"},
+  {"id": "doEditBlogPosting", "type": "idempotent", "rt": "#Blog"},
 ```
 
 ## Element
@@ -58,7 +58,7 @@ The description of the ALPS descriptor is divided into the following three block
 3. semantic descriptors for state transitions (choreography)
 
 ```json
-descriptor" : [
+"descriptor" : [
     {"id" : "name", "type" : "semantic", "def": "http://schema.org/identifier"},
     {"id" : "age", "type" : "semantic", "def": "http://schema.org/title"},
 
@@ -78,16 +78,16 @@ ALPS can represent hierarchical meanings by position.
 ```json
 "descriptor": [
     {"id": "name", "def": "https://schema.org/name"},
-    {"id": "product", "descriptor":[
+    {"id": "Product", "descriptor":[
       {"href": "#name"}
     ]}
-    {"id": "person", "descriptor":[
+    {"id": "Person", "descriptor":[
       {"href": "#name"}
     ]}
 ]
 ```
 
-In the above example, `name` is shared with `product/name` and `person/name`.
+In the above example, `name` is shared with `Product/name` and `Person/name`.
 The basic rule is to follow the practices of each format when representing such words in a format with only a flat hierarchy.
 
 * In the html case, it is represented by the Lower camel case.
