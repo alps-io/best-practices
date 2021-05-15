@@ -87,7 +87,7 @@ ALPS can represent hierarchical meanings by position.
 ]
 ```
 
-In the above example, `name` is shared with `product/name` and `person/name`.
+In the above example, `name` is shared with `Product/name` and `Person/name`.
 The basic rule is to follow the practices of each format when representing such words in a format with only a flat hierarchy.
 
 * In the html case, it is represented by the Lower camel case.
