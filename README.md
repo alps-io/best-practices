@@ -20,6 +20,8 @@ A semantic descriptor that is a web page contains other semantic descriptors, an
 
 A simple `safe` request is represented by appending a `go` prefix to the descriptor of the next transition destination.
 
+refer to nbest practice from 8288: https://datatracker.ietf.org/doc/html/rfc8288#section-3.3
+
 ```json
   {"id": "goHome", "type": "safe", "rt": "#Home"},
   {"id": "goFirst", "type": "safe", "rt": "#TodoList"},
